@@ -2,9 +2,9 @@
 \usepackage{graphicx}
 \usepackage{fullpage}
 
-
 \usepackage{mathpazo}
 \usepackage{euler}
+
 
 
 \graphicspath{ {./urpimages/} }
@@ -76,6 +76,7 @@
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\syl}{Syl}
 \DeclareMathOperator{\inn}{Inn}
 \newcommand{\sym}{\text{Sym}}
 \newcommand{\ord}{\text{ord}}
@@ -197,10 +198,10 @@ Let $G$ be a group and let $H \leq G$. Then we define a (left) \textit{coset} to
 \end{coro}
 
 \begin{defi}
-If $H \leq G$ then the \textbf{index} of $H$ in $G$, written $[G \colon H$, is the number of left (or right) cosets of $H$ in $G$. That is, $[G \colon H] = | \{gH \colon g \in G \} |$	
+If $H \leq G$ then the \textbf{index} of $H$ in $G$, written $[G \colon H]$, is the number of left (or right) cosets of $H$ in $G$. That is, $[G \colon H] = | \{gH \colon g \in G \} |$	
 \end{defi}
 \begin{rem}
-If $G$ is finite, then $[G \colon H ] = |G| / |H|$.	Moreover, if $K \leq H \leq G$ then $[G \colon K ] = [G \colon H ] [H \colon K]$ as we have $$[G \colon H ] [H \colon K] = \frac{|G|}{|H|} \cdot \frac{|H|}{|K|} = \frac{|G|}{|K|} = [G \colon K.$$ We will note here, without proof, that this is also true when considering infinite groups. 
+If $G$ is finite, then $[G \colon H ] = |G| / |H|$.	Moreover, if $K \leq H \leq G$ then $[G \colon K ] = [G \colon H ] [H \colon K]$ as we have $$[G \colon H ] [H \colon K] = \frac{|G|}{|H|} \cdot \frac{|H|}{|K|} = \frac{|G|}{|K|} = [G \colon K]. $$ We will note here, without proof, that this is also true when considering infinite groups. 
 \end{rem}
 
 
@@ -272,8 +273,41 @@ For any finite group $G$,  $$ |G| = |Z(G)| + \sum |\cl_G(x_i)|,$$ where the sum 
 % \begin{rem}[Class Equation] For any finite group $G$, $$|G| = |Z (G) | + \sum |\cl_G (x_i)|,$$	where the sum is taken over distinct conjugacy classes of size greater than $1$> 
 % \end{rem}
 Note here that this is not an immediate consequence of Langrange, as conjugacy classes are not subgroup. A simple way to see this is that the only conjugacy class containging the identity is the identity itself. As, if you had $1 \in \cl_G(x)$ for some $x \neq 1 \in G$, then $1 = gxg^{-1}$ for some $g \in G$, so $1g = g = xg$, so $x = 1$, which is a contradiction and we must have $1 \notin \cl_G (x)$.  
-\section{Semi-Direct Products}
 
+
+\section{Sylow Theorems} 
+\begin{defi}
+Let $G$ be group and $p$ be prime. 
+\begin{itemize}
+	\item A group of order $p^\alpha$ for some $\alpha \geq 1$ is called a $p$-group. Subgroups of $G$ which are $p$ groups are called $p$-subgroups.
+	\item If $G$ is a group of order $p^\alpha m$, where $p \nmid m$, then a subgroup of order $p^\alpha$ is called a \textbf{Sylow $p$-subgroup} of $G$.
+	\item The set of Sylow $p$-subgroups of $G$ will be denoted by $\syl_p (G)$ and the number of Sylow $p$-subgroups of $G$ will be denoted by $n_p (G)$ (or just $n_p$ when clear).
+\end{itemize}	
+\end{defi}
+\begin{theorem}[Sylow's Theorem] Let $G$ be a group of order $p^\alpha m$, where $p$ is a prime not dividing $m$
+	\begin{itemize}
+		\item Sylow $p$-subgroups of $G$ exist, i.e. $\syl_p (G) \neq \varnothing$.
+		\item If $P$ is a Sylow $p$-subgroup of $G$ and $Q$ is any $p$-subgroup of $G$, then there exists $g \in G$ such that $Q \leq gPg^{-1}$, i.e. $Q$ is contained in some conjugate of $P$. In particular, any two Sylow $p$-subgroups of $G$ are conjugate in $G$.
+		\item The number of Sylow $p$-subgroups of $G$ is given by considering $n_p \equiv 1 \Mod{p}$ and the fact that $n_p \mid m$. 
+	\end{itemize}
+\end{theorem}
+\subsection{Counting to Force Normalization of a Sylow $p$-subroup}
+
+
+Let $G$ be a group and $|G| = n$, let $p$ be prime dividing $n$ and let $P \in \syl_p (G)$. If $|P| = p$, then every nonidentity element of $P$ has order $p$ (we use this a lot in semidirect products) and every element of $G$ of order $p$ is in some conjugate of $P$. By Lagrange, distinct conjugates of $P$ interesect in the identity, and so in this case the number of elements of $G$ of order $p$ is $n_p (p-1)$. 
+
+If Sylow $p$-subgroups for different primes have different orders (cf. Exercise 6.1 that follows this section) and we assume none these is normal, we can sometimes show that the number of elements of prime order is $> |G|$. This contradiction forces one of the $n_p$ to be $1$ and thus giving us a normal Sylow $p$-subgroup in $G$. 
+\begin{ex}
+Let $|G| = 105 = 3 \cdot 5 \cdot 7$. Then use many choices for the $n_3, n_5,$ and $n_5$, but if we assume $n_3 = 7$, $n_5 = 21$, and $n_7 =15$ (for their respective max): 
+\begin{center}
+the number of elments of order $3$ is $7 \cdot 2 = 14$ \\
+the number of elments of order $5$ is $21 \cdot 4 = 84$ \\
+the number of elments of order $7$ is $15 \cdot 6 = 90$ 
+\end{center}
+	which implies that the number of elements of prime order is $90 + 84 + 14 = 188$, but this greater than $ 105$, so we have a contradiction. 
+	\end{ex}
+
+\section{Semidirect Products}
 \begin{exercise}
 	Classify the structure of a group of order $20$.
 \end{exercise}
@@ -323,9 +357,6 @@ Classify the structure of a group of order $28$.
 	The last two mappings can be seen to induce the same group, i.e. $Z_6 \rtimes_{\alpha_3} Z_2 \times Z_2 \simeq Z_6 \rtimes_{\alpha_4} Z_2 \times Z_2$, and we of course have the trivial mapping given by $\alpha_1$, so we also have $Z_6 \times Z_2 \times Z_2$. The other group we have is $K_6 \rtimes_{\alpha_2} Z_2 \times Z_2$. 
 \end{proof}
 
-In general, when approaching these kinds of classification problems there's a receipe we can follow, as seen clearly by the last two problems. If we have a group $G$ 
-
-
 \subsection{Inner Direct Product} 
 Suppose that $G$ is a group and $H \triangleright G$, $K \leq G$, and $H \cap K = \{ 1 \}$. We seen in the past that $HK = \{ hk \colon h \in H, k \in K \}$ does indeed form a subgroup of $G$, i.e. $HK \leq G$. Now, since $H \cap K = \{ 1 \}$, then for every $x \in HK$, we have a unique pair $(h, k)$ such that $x = hk$. For now, this uniqueness is unclear to me, so let the assumption that $H \cap K = \{1 \}$ be a black box. Now, if we take some $g_1, g_2 \in HK$ such that $g_1 = h_1 k_1$ and $g_2 = h_2 k_2$ for some $h_1, h_2 \in H$ and $k_1, k_2 \in K$, then $g_1 g_2 = (h_1 k_1) (h_2 k_2) = h_1 k_1 h_2 k_2 = h_1 k_1 h_2 k_1 ^{-1} k_1 k_2 = h_1 (k_1 h_2 k^{-1}) k_1 k_3 = h_1 \varphi_{k_1} (h_2) k_3$, where $\varphi \colon K \longrightarrow \aut (H)$ by $ \varphi \colon k \longmapsto \varphi_k$ and $\varphi$ takes some element $x \in H$ to $kxk^{-1}$, i.e. $\varphi_k  \colon x \lmt kxk^{-1}$. Therefore we have that the maps coincide. 
 
@@ -351,8 +382,6 @@ Then $(H \times K, \cdot)$ is a group, and is denoted by $H \rtimes_\psi K$, cal
 \end{align*} 
 we should note here that we were using the fact that $H$ and $K$ are groups to do a lot of the work in their respective slots. Therefore $H \rtimes_\psi K$ is a group. 
 \end{proof}
-\begin{prop}
-\end{prop} 
 \end{theorem}
 
 
@@ -483,7 +512,18 @@ Recall that $F$ is a field if and only if $F[x]$ is a PID. Furthermore, if $R$ i
 
 \subsubsection{Polynomial Rings that are UFD} Recall that if we have an integral domain $R$ then we can embed it into its field of fraction, say, $F$, so that $R[x] \subseteq F[x]$ is a subring and $F[x]$ is a Euclidean domain (and hence a PID and UFD). A motivation towards using $F[x]$ rather than $R[x]$ is that, well, we have more ready machinery in $F[x]$, and as $R[x] \subseteq F[x]$ then we can approach some questions about $R[x]$ in $F[x]$. For example, if we have $p(x) \in R[x]$. Then $p(x) \in F[x]$ and as $F[x]$ is a UFD we can factor $p(x)$ uniquely into a product of irreducibles in $F[x]$. In general $R[x]$ is not a UFD, and so if $R$ is an integral domain that isn't a UFD, then $R[x]$ cannot be a UFD as well. 
 
+
+
 \begin{prop}[Gauss' Lemma] Let $R$ be a UFD with field of fractions $F$ and let $p(x) \in R[x]$. If $p(x)$ is reducible in $F[x]$ then $p(x)$ is reducible in $R[x]$. More precisely, if $p(x) = A(x)B(x)$ for some nonconstant polynomials $A(x), B(x) \in F[x]$, then there are nonzero elements $r,s \in F$ such that $r A(x) = a(x)$ and $sB(x) = b(x)$ both lie in $R[x]$ and $p(x) = a(x) b(x)$ is a factorization in $R[x]$. 	
 \end{prop}
+\begin{coro}
+Let $R$ be a UFD, let $F$ be its field of fractions and let $p(x) \in R[x]$. Suppose the greatest common divisor of the coefficients of $p(x)$ is $1$. The $p(x)$ is irreducible in $R[x]$ if and only if it is irreducible in $F[x]$. In particular, if $p(x)$ is a monic polynomial that is irreducible in $R[x]$, then $p(x)$ is irreducible in $F[x]$. 
+\end{coro}
+\begin{proof}
+	By Gauss' Lemma, we have that if $p(x)$ is irreducible in $R[x]$, then $p(x)$ is irreducible in $F[x]$ (contrapositive). Now for the other direction, irreducible in $F[x]$ $\implies$ irreducible in $R[x]$, we do this again by contrapostive: suppose $p(x)$ is reducible in $R[x]$, and so let $p(x) = a(x) b (x)$, where $a(x), b(x) \in R[x]-R^\times $, as the gcd of all the coefficents is one. This factorization of $p(x)$ is once again reducible in $F[x]$. 
+\end{proof}
+\begin{theorem}
+	$R$ is a UFD if and only if $R[x]$ is a UFD.
+\end{theorem}
 
 \end{document}
