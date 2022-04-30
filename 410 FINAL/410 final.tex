@@ -172,7 +172,14 @@ The reason for defining the normalizer in this manner is possibly the main canno
 \begin{proof}
 	Let $a_i$ be in $\{a_1, a_2, \ldots a_m \}$. Then $\alpha \beta (a_i) = \alpha (\beta (a_i)) = \alpha (a_i) = a_{i+1}$, and $\beta \alpha (a_i) = \beta (\alpha (a_i)) = \beta (a_{i+1}) = a_{i+1}$. Similarily, let $b_i$ be in $\{b_1, b_2, \ldots, b_n \}$. Then $\alpha \beta (b_i) = \alpha (\beta (b_i)) = \alpha (b_{i+1}) = b_{i+1}$, and $\beta (\alpha (b_i)) = \beta (b_i) = b_{i+1}$. 
 \end{proof}
-\section{Dihedral Group} In general, the \textbf{dihedral group} is the group of symmetries of a regular polygon, where the elements in the groups are represenative of rotations and reflections. The group is defined as $D_{2n} = \langle r, s \colon r^n = s^2 =1, \;  rs=sr^{-1}  \rangle$. We use the convention of denoting the dihedral group as $D_{2n}$ rather than $D_n$ as $| D_{2n} | = 2n$, as opposed to using $D_n$ to denote the $n$-gon (e.g. for the group of symmetries of a triangle, $D_{2(3)} = D_6$ rather than $D_3$). We can note that, taking the geometric point of view, that $s \neq r^i$ for any $i$, as if we have a regular polygon (e.g. take a square) then if we rotate it as many times as we please, then it wouldn't make any sense for it to be equivalent to a roation along any axis (label and work it with a square to help visual aid). Furthermore, we also have that $sr^i \neq sr^j$, for all $0 \leq i, j \leq n- 1$ with $i \neq j$, so a presentation of $D_{2n}$ in terms of looking at its elements, $$D_{2n} = \{ 1, r, r^2, \ldots, r^{n-1}, s, sr, sr^2, \ldots, sr^{n-1} \}.$$
+\subsubsection{Transpositions and the Alternating Group}
+First we need to recall that any elment of $\mathfrak{S}_n$ can be written as a product of disjoint cycles in a \textit{unique} way. However, if we don't write the cycle as a product of disjoint cycles, then the representation of the cycle can take many forms: for example, $\sigma = (1 \; 2\; 3)$ in $\mathfrak{S}_3$ may be written as $ (1 \; 3) (1 \; 2)$, $(1 \; 2) (1 \; 3) (1 \; 2) (1 \;3)$, and there are more representations (in fact, infinitely many ways!). And so, if we allow for the cycle to not be disjoint, then we're destroying the uniqueness of a representation of a permutation as a product of cycles. 
+
+\begin{rem}
+Once again, recall that a $2$-cycle	is called a transposition, and for any $\mathfrak{S}_n$, we may write any $\sigma \in \mathfrak{S}_n$ as a product of two cycles (however not in a unique way). For example, we have $(1 \; 2 \; 3 ) = ( 1\; 3) (1 \; 2)$ for $\mathfrak{S}_3$. In general, if $\sigma = (a_1 \; a_2 \; \ldots \; a_m) \in \mathfrak{S}_n$, then we can write this as a product of transpositions: $\sigma = ( a_1 \; a_m) (a_1 \; a_{m-1} ) (a_1 \; a_{m-2}) \; \ldots \; (a_1 a_2)$. And so, we can say that $\mathfrak{S}_n$ is finitely generated if $n < \infty$ by the given set $\langle T \rangle = \langle \{ (i \; j ) \colon 1 \leq i < j \leq n \} \rangle = \mathfrak{S}_n$. 
+\end{rem}
+	
+\subsection{Dihedral Group} In general, the \textbf{dihedral group} is the group of symmetries of a regular polygon, where the elements in the groups are represenative of rotations and reflections. The group is defined as $D_{2n} = \langle r, s \colon r^n = s^2 =1, \;  rs=sr^{-1}  \rangle$. We use the convention of denoting the dihedral group as $D_{2n}$ rather than $D_n$ as $| D_{2n} | = 2n$, as opposed to using $D_n$ to denote the $n$-gon (e.g. for the group of symmetries of a triangle, $D_{2(3)} = D_6$ rather than $D_3$). We can note that, taking the geometric point of view, that $s \neq r^i$ for any $i$, as if we have a regular polygon (e.g. take a square) then if we rotate it as many times as we please, then it wouldn't make any sense for it to be equivalent to a roation along any axis (label and work it with a square to help visual aid). Furthermore, we also have that $sr^i \neq sr^j$, for all $0 \leq i, j \leq n- 1$ with $i \neq j$, so a presentation of $D_{2n}$ in terms of looking at its elements, $$D_{2n} = \{ 1, r, r^2, \ldots, r^{n-1}, s, sr, sr^2, \ldots, sr^{n-1} \}.$$
 \begin{rem}
 	As we've seen in the definition of $D_{2n}$ we have that $rs = sr^{-1}$ for all $s, r$, but we in fact have $r^i s = sr^{-i}$ for all $i \geq 1$. We proceed by induction: the base case is trivial, as we have it by definition. Let $r^k s = sr^{-k}$ for all $k \geq 1$. Then $r (r^k s ) = (r r^k s) = r^{k+1} s = r(sr^{-k}) = (rs) r^{-k} = (sr^{-1})(r^{-k}) = s (r^{-1} r^{-k}) = s^{-1(k+1)}$, and we're done. 
 
@@ -358,7 +365,7 @@ Classify the structure of a group of order $28$.
 \end{proof}
 
 \subsection{Inner Direct Product} 
-Suppose that $G$ is a group and $H \triangleright G$, $K \leq G$, and $H \cap K = \{ 1 \}$. We seen in the past that $HK = \{ hk \colon h \in H, k \in K \}$ does indeed form a subgroup of $G$, i.e. $HK \leq G$. Now, since $H \cap K = \{ 1 \}$, then for every $x \in HK$, we have a unique pair $(h, k)$ such that $x = hk$. For now, this uniqueness is unclear to me, so let the assumption that $H \cap K = \{1 \}$ be a black box. Now, if we take some $g_1, g_2 \in HK$ such that $g_1 = h_1 k_1$ and $g_2 = h_2 k_2$ for some $h_1, h_2 \in H$ and $k_1, k_2 \in K$, then $g_1 g_2 = (h_1 k_1) (h_2 k_2) = h_1 k_1 h_2 k_2 = h_1 k_1 h_2 k_1 ^{-1} k_1 k_2 = h_1 (k_1 h_2 k^{-1}) k_1 k_3 = h_1 \varphi_{k_1} (h_2) k_3$, where $\varphi \colon K \longrightarrow \aut (H)$ by $ \varphi \colon k \longmapsto \varphi_k$ and $\varphi$ takes some element $x \in H$ to $kxk^{-1}$, i.e. $\varphi_k  \colon x \lmt kxk^{-1}$. Therefore we have that the maps coincide. 
+Suppose that $G$ is a group and $H \triangleright G$, $K \leq G$, and $H \cap K = \{ 1 \}$. We seen in the past that $HK = \{ hk \colon h \in H, k \in K \}$ does indeed form a subgroup of $G$, i.e. $HK \leq G$. Now, since $H \cap K = \{ 1 \}$, then for every $x \in HK$, we have a unique pair $(h, k)$ such that $x = hk$. For now, Now, if we take some $g_1, g_2 \in HK$ such that $g_1 = h_1 k_1$ and $g_2 = h_2 k_2$ for some $h_1, h_2 \in H$ and $k_1, k_2 \in K$, then $g_1 g_2 = (h_1 k_1) (h_2 k_2) = h_1 k_1 h_2 k_2 = h_1 k_1 h_2 k_1 ^{-1} k_1 k_2 = h_1 (k_1 h_2 k^{-1}) k_1 k_3 = h_1 \varphi_{k_1} (h_2) k_3$, where $\varphi \colon K \longrightarrow \aut (H)$ by $ \varphi \colon k \longmapsto \varphi_k$ and $\varphi$ takes some element $x \in H$ to $kxk^{-1}$, i.e. $\varphi_k  \colon x \lmt kxk^{-1}$. Therefore we have that the maps coincide. 
 
 We can take note of that the fact that $g_1 g_2$ is completely determined by the group homomorphism: 
 \begin{align*} \varphi \colon K &\lra \inn (H) \leq \aut (H) \\  
@@ -525,5 +532,37 @@ Let $R$ be a UFD, let $F$ be its field of fractions and let $p(x) \in R[x]$. Sup
 \begin{theorem}
 	$R$ is a UFD if and only if $R[x]$ is a UFD.
 \end{theorem}
+\begin{coro}
+If $R$ is a UFD, then a polynomial ring in an arbitrary number variables with coefficients in $R$ is also a UFD. 	
+\end{coro}
 
+\subsection{Irreducibility of Polynomials}
+
+\begin{prop}
+Let $F$ be a field and let $p(x) \in F[x]$. Then $p(x)$ has a factor of degree one if and only if $p(x)$ has a root in $F$.
+\begin{proof}
+	Suppose that $p(x)$ has a factor of degree one, i.e. $p(x)$ has a linear factor. Now as were working with a field $F$, we may assume the factor is monic, and so the linear factor is of the form $(x- \alpha )$ with $\alpha \in F$. But clearly if $\alpha = x$, then we get that $p( \alpha ) = 0$, i.e. $\alpha$ is a root in $F$. Now suppose we have that $p (\ell ) = 0$ for some $\ell \in F$. Then we may write $p(x) = q(x)(x-\ell) + r$ and $r$ is constant as we needed $\deg (x - \ell ) = 1 > ``\deg (r)$". So then $p (\ell) = q(\ell) (\ell- \ell) + r = 0 +r = r$, and so then $r = 0 $ and $(x-\ell)$ is a linear factor of $p(x)$. 
+\end{proof}	
+\begin{prop}A polynomial of degree two or three over a field $F$ is irreducible if and only if it has no roots in $F$.
+\end{prop}
+\begin{proof}
+	Let $f \in F[x]$ with $f$ having degree two or three. If $f$ has a root $\alpha$ in $F$, then $f$ is divisible by $(x-\alpha)$, and so $f$ is reducible. Now, for the other direction, if $f$ is reducible in $F[x]$, then it has a factor of degree $1$, which is of the form $ax+b$. Then $-b/a$ is a root of $f$. 
+\end{proof}
+\begin{prop}
+Let $p(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_0$ be a polynomial of degree $n$ with integer coefficients. If $r/s \in \qq$ is in lowest terms (i.e. $r$ and $s$ are relatively prime integers) and $r/s$ is a root of $p(x)$, then $r$ divides the constant term and $s$ divides the leading coefficient of $p(x)$:  $r \mid a_0$ and $s \mid a_n$. In particular, if $p(x)$ is a monic polynomial with integer coefficents and $p(d) \neq 0$ for all integers $d$ diving the constant term of $p(x)$, then $p(x)$ has no roots in $\qq$. 
+\end{prop}
+\begin{proof} Suppose that $r/s \in \qq$ and $\gcd (r, s) = 1$ with $p(r/s) = 0$. Then 
+	$p(r/s) = 0 = a_n (r/s)^n + a_{n-1} (r/s)^{n-1} + \cdots + a_1 (r/s) + a_0$, and so $ 0 = a_n r^n +a_{n-1} r^{n-1}s  + \cdots + a_0 s^n$, which can be rewritten as $a_n r^n = s(-a_{n-1} r^{n-1}  - \cdots - a_0 s^{n-1})$. Hence $s \mid a_n r^n$. So, as $\gcd (r,s) = 1$, we must have that $s \mid a_n$. Solving the equation for $a_0 s^n$ would've given us that $ r \mid a_0$. 
+\end{proof}
+\begin{ex}
+For any prime $p$ the polynomials $x^2 - p$ and $x^3 - p$ are irreducible in $\qq [x]$, as they are degree less than or equal to three and it's obvious that they have no rational roots. The fact that $x^2 - p$ is irreducible in $\qq[x]$ provides with the fact that $\sqrt{2}$ is irrational for the case of $p=2$. However, using the previous proposition, and supposing we had a hypothetical root in $r/s \in \qq$, then we would need for $r \mid p$ and $s \mid 1$, and so this would mean that we need have the choice between the roots $\pm 1$ or $\pm p$, but in either case case, when substituted into either equation, we don't produce a zero. 
+\end{ex}
+\begin{prop}
+Let $I$ be a proper ideal in the integral domain $R$ and let $p(x)$ be a nonconstant monic polynomial in $R[x]$. If the image of $p(x)$ in $(R/I)[x]$ cannot be factored in $(R/I)[x]$ into two polynomials of smaller degree, then $p(x)$ is irreducible in $R[x]$. 	
+\end{prop}
+\begin{proof}
+	Suppose $p(x)$ cannot be factored in $(R/I)[x]$ but that $p(x)$ is reducible in $R[x]$, in aim of contradiction. Then there are monic polynomials $a(x)$ and $b(x)$ in $R[x]$ such that $p(x) = a(x) b(x)$. By the isomorphism between $R[x]/I[x] \simeq (R/I)[x]$. reducing the coefficients modulo $I$, gives a factorization in $(R/I) [x]$ with nonconstant factors, which is a contradiction. Thus $p(x0$ is irreducible. 
+\end{proof}
+\begin{prop}[Eisenstein's Criterion] Let $P$ be a prime ideal of the integral domain $R$ and let $f(x) = x^n+ a_{n-1}x^{n-1} + \cdots + a_1 x + a_0$ be a polynomial in $R[x]$ (here $n \geq 1$). Suppose $a_{n-1}, \ldots, a_1 a_0$ are all elements of $P$ and suppose $a_0$ is not an element of $P^2$. Then $f(x)$ is irreducible in $R[x]$
+\end{prop}
 \end{document}
