@@ -109,6 +109,8 @@
 \author{Juan Serratos}
 \begin{document}
 \maketitle
+\tableofcontents
+\newpage
 \section{Groups}
 \subsection{Group Actions and Orbit-Stablizer Theorem}
 \begin{defi}
@@ -599,6 +601,71 @@ Let $R$ be a Euclidean domain. Let $m$ be the minimum integer in the set of norm
 			
 	\end{proof}
 \end{exercise}
+\subsection{Polynomial Rings that are UFDS}
+\begin{exercise}[1.] 
+\end{exercise}
 \subsection{9.4: Irreducibility Criteria} 
+\begin{exercise}[1.]. 
 
+\begin{itemize}
+	\item[(a)] $x^2 + x + 1$  in $\zz/ 2\zz  [x]$.
+	\item[(b)] $x^3 + x + 1$  in $\zz/ 3\zz  [x]$.
+	\item[(c)] $x^4 + 1$  in $\zz/ 5\zz  [x]$. 
+	\item[(d)] $x^4 + 10x^2 + 1$ in $\zz[x]$.
+\end{itemize}
+\end{exercise}
+\begin{proof}
+	For (a): it suffices to check all cases: $0^2 + 0 + 1 = 1 $ and $1^2 + 1 + 1 = 3 =1$, and so by Proposition 10. (308) in D\&G, this polynomial is irreducible. 
+	
+	For (b): once again, it suffices to check all cases: $0^3 + 0 + 1 = 1, 1^3 + 1 + 1 = 0, $ and $3^2 + 3 + 1 = 1$, and so this polynomial is reducible and can be factored as 
+	
+	For (c): Observe that $1 \equiv -4  \Mod{5}$, and so $x^4  + 1 = x^4 - 4 = (x^2+2)(x^2 - 2)$; thus $x^4 + 1$ is reducible in $\zz / 5 \zz[x]$.
+	
+	For (d): Suppose that $f = x^4 + 10x^2 + 1$ is reducible in $\zz[x]$. 
+
+
+\section{First Midterm:}
+\begin{exercise} Let $\varphi \colon G \to G^\pp$ be a group homomorphism, and let $H^\pp \trianglelefteq G^\pp $. Show that $\varphi^{-1} (H^\pp) \trianglelefteq G$. 
+\end{exercise}
+\begin{proof}
+The set is nonempty as $\varphi (1) =1 \in \varphi^{-1} (H^\pp)$.  Now take $x, y \in \varphi^{-1} (H^\pp)$. Then as $\varphi (y) = h$ for some $h \in H^\pp$, then $\varphi (1) = \varphi(y) \varphi(y^{-1}) =h \varphi(y^{-1} )=  1$, and so we have that $\varphi(y^{-1}) = h^{-1} \in H^\pp$. Thus we trivially get that $\varphi (xy^{-1}) = \varphi (x) \varphi(y^{-1}) \in H^\pp$. So we have that $\varphi^{-1} (H^\pp) \leq G$. For normality, take $g \in G$ and $\varphi(a \in G) = k \in H^\pp$. As $H^\pp$ is normal for $G^\pp$,  then we have $\varphi (gkg^{-1} ) = \varphi (g) k \varphi(g^{-1}) \in H^\pp$. Thus $\varphi^{-1} (H^\pp) \trianglelefteq G$. 
+\end{proof}
+\begin{exercise}
+	Let $G$ be a finite group of order $p$, a prime. Show that $G \simeq \zz/ p \zz$.
+\end{exercise}
+\begin{proof}
+	As $G$ has order $p$, then there exists an element, say, $q \in G$ such that $q^p = 1$. Thus we have a cyclic subgroup $ \langle q \rangle $ with order $p$, and so we have that $ | \langle q \rangle = p \mid p$. (The only other subgroup of $G$ would be $ \{ 1 \}$, the trivial subgroup.) This forces $G$ to be cyclic and so let $\langle x \rangle = G$. Now we define $\varphi \colon G \to \zz / p \zz$ by $\varphi (x^i) = \overline{i}$ for some $x^i \in G$, and $0 \leq i \leq p$. This map is trivially seen to be surjective. Now let $x^i, x^j \in G$. Then $\varphi (x^i \cdot x^j) = \varphi(x^{ij}) = \overline{ij} = \overline{i} \cdot  \overline{j} = \varphi (x^i) \varphi(x^j)$, and so we have a homomorphism. Now, $\ker \varphi = \{ x^i \in G \colon \varphi(x^j) = \overline{1} = \overline{p} \}$. Thus $\ker \varphi$ has cardinality one as the only element in $G$ that maps to $\overline{1}$ is $x^p = 1$ (by the nature of how the map is define). So $\varphi$ is injective and we have an isomorphism $ G \simeq \zz / p \zz$. 
+\end{proof}
+\begin{exercise}
+	Let $H \trianglelefteq G$ and $K \leq G$, where $G$ is a group. Show that $HK = \{ hk \colon h \in H, k \in K \}$ is a subgroup of $G$. 
+\end{exercise}
+
+\begin{proof}
+	Note that $HK$ is trivially nonempty as $0 \cdot 0  \in HK$. Let $x = h_1 k_1 \in HK$ and $ y= h_2 k_2 \in HK$. Then , consider $y^{-1} = (h_2 k_2)^{-1} = k_2^{-1} h_2^{-1}$. Then $xy^{-1} = (h_1 k _1 )(k_2^{-1} h_2^{-1}) = h_1(k_1 k_2^{-1}) h_2^{-1}$, and let $k_1 k_2^{-1} = k_3$. As $H \trianglelefteq G$ and $K \leq G$, we have that $h_1 k_2 h_2^{-1}  = h_1 h_2 k_2 \in HK$. Thus $HK$ is a subgroup of $G$. 
+\end{proof}
+\begin{exercise}
+Consider the action of a group $G$ on a set $X$, and let $x_0 \in X$. Show that there is a bijection between $G/ G_{x_0} $ and $G \cdot x_0$.	
+\end{exercise}
+\begin{proof}
+	Define $\varphi \colon G \cdot x_0 \rightarrow G/G_{x_0}$ given by, for all $g \in G$, $\varphi(g \cdot x) = g G_{x_0} $, and $\cdot$ in the LHS is the group action on $X$. Suppose that $g \cdot x = h \cdot x$ for some $g, h \in G$. Then we have that $h^{-1} g \cdot x = 1 \cdot x =x$, which means that $h^{-1} g \in G_{x_0}$, so then $g G_{x_0} = h G_{x_0}$; thus we have that $\varphi $ is well defined. Let $\varphi (g_1  \cdot x) = \varphi (g_2 \cdot x)$, then $g_1 G_{x_0} = g_2 G_{x_0}$, and so we have that $g_2^{-1} g_1 \in G_{x_0}$. This means that $g_2^{-1} g_1 \cdot x = x $, so then we may write $g_2 \cdot x = g_2 \cdot (g_2^{-1} g_1 \cdot x)= (g_2 g_2^{-1} g_1)\cdot x = g_1 \cdot x$, and so we conclude that $\varphi$ is injective. Moreover, we can see, by definition of our map, that $\varphi $ is clearly surjective. Therefore we have a bijection. 
+\end{proof}
+\begin{exercise}
+	Let $G$ be a group and let $x$ and $y$ be two elements of $G$ such that $|xy| = n$. Show that $|yx| = n$. 
+\end{exercise}
+\begin{proof}
+	So, $(xy)(xy)\cdots (xy) = 1$ for $n$ many $xy$ terms, which implies that  $x(yx)(yx) \cdots (yx)y = 1$, where there are $n-1$ many $yx$ terms. So then $(yx)(yx)\cdots (yx) = (yx)^{n-1} =  x^{-1} y^{-1} = (yx)^{-1}$, and hence $(yx)^{n-1} (yx) = (yx)^n = 1$. Thus $|yx| = n$. \end{proof}
+	\begin{exercise}Let $G$ be a $p$-group of order $p^2$. We wish to classify the possible group structures on $G$ up to isomorphism.
+		\begin{itemize} 
+		\item[(a)]Case 1: Suppose $G$ contains an element of order $p^2$. Conclude.
+		\item[(b)] Case 2: Suppose that $G$ does not contain an element of order $p^2$: 
+		\item[ (b)(i)] Show that $Z(G)$ contains a subgroup $H$ of order $p$
+		\item [(b)(ii)] Show that $G$ contains another subgroup $K$ of order $p$, $K \neq H$. Then show that $G = HK$. 
+		\item [(b)(iii)] Show that $H \times K \simeq G = HK$. Conclude.
+		\end{itemize}
+	\end{exercise}
+	\begin{proof}
+		For part (a): If $G$ contains an element of order $p^2$, then $G$ is cyclic, as $G$ would be generated by that element as order of cyclic group generated by that element would be $p^2 = |G|$, and so $G \simeq Z/p^2 \zz$. 
+		
+		(b): Suppose that $G$ does not contain an element of order $p^2$. 
+	\end{proof}
 \end{document}

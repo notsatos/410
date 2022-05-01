@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  30 APR 2022 21:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  1 MAY 2022 00:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1011,30 +1011,24 @@ uf/m/n/9 + \U/eur/m/n/9 a[]x[] \U/euf/m/n/9 +
  []
 
 [11] [12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 604.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 604.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 612.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 612.
  (./410 final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 604.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 604.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 612.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 612.
+Package rerunfilecheck Info: File `"410 final".out' has not changed.
+(rerunfilecheck)             Checksum: BDEC4C5CCA0CF9D713CF432BEBB64311;1508.
 
-
-Package rerunfilecheck Warning: File `"410 final".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"410 final".out':
-(rerunfilecheck)             Before: 4EA48D42580A314494820809795D8855;1455
-(rerunfilecheck)             After:  A1D049EAB62B3C5B0900E3D1D7F3ECD1;1455.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 604.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 612.
  ) 
 Here is how much of TeX's memory you used:
- 20295 strings out of 480608
- 384962 string characters out of 5903631
- 639410 words of memory out of 5000000
- 35484 multiletter control sequences out of 15000+600000
+ 20298 strings out of 480608
+ 384994 string characters out of 5903631
+ 639408 words of memory out of 5000000
+ 35485 multiletter control sequences out of 15000+600000
  551398 words of font info for 85 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  67i,14n,84p,1909b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1057,10 +1051,10 @@ r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 </usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/l
 ocal/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/te
 xlive/2020/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "410 final.pdf" (12 pages, 229139 bytes).
+Output written on "410 final.pdf" (12 pages, 230648 bytes).
 PDF statistics:
- 312 PDF objects out of 1000 (max. 8388607)
- 277 compressed objects within 3 object streams
- 103 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 317 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 
