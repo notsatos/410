@@ -1,7 +1,6 @@
 \documentclass[9pt,reqno]{amsart}
 \usepackage{graphicx}
 \usepackage{fullpage}
-
 \usepackage{mathpazo}
 \usepackage{euler}
 
@@ -9,7 +8,9 @@
 
 \graphicspath{ {./urpimages/} }
 \usepackage[margin=2.5cm]{geometry}
-\usepackage{amsfonts,amssymb,latexsym,amsmath, amsthm}
+\usepackage{amssymb,amsmath}
+\newcommand\hmmax{0}
+\newcommand\bmmax{0} 
 \usepackage{tikz-cd}
 \usepackage{mathrsfs}
 \usepackage{comment}
@@ -100,6 +101,7 @@
 \newcommand{\ccc}{\mathfrak{C}}
 \newcommand{\idealM}{\mathfrak{M}}
 %Itemize gap:
+
 \hypersetup{linktocpage}
 
 % \pagecolor{black}
@@ -611,8 +613,19 @@ Let $R$ be a Euclidean domain. Let $m$ be the minimum integer in the set of norm
 \begin{exercise}[5.]
 	Let $R$ be the quadratic integer ring $\zz[\sqrt{-5}]$. Define the ideals $I_2 = (2, 1+ \sqrt{-5})$, $I_3(3, 2+\sqrt{-5})$, and $I_1 = (3, 2-\sqrt{-5})$.
 	\begin{proof}
-		We will only show one of the ideals is not principal for (a), as the rest follow pretty easily using the same structure as proving for it one of the ideals: Suppose that $I_2$ is a principal ideal, that is, let $I_2 = (2, 1+ \sqrt{-5})= (\alpha) $. Then we have that $2 = \alpha x$ and $1+ \sqrt{-5} = \alpha y$ for some $x, y \in \zz[\sqrt{-5}]$. So then $N(2) = 4 = N(\alpha ) N(x)$ and $N(1+\sqrt{-5}) = 1^2 + 5 = 6 =   N(\alpha) N(y) $. Thus we have that $N (\alpha) = 1$ or $2$, as $N(\alpha) \mid 4$ and $N (\alpha) \mid 6$. When $N(\alpha) = 1$, then $\alpha$ is a unit, so $(\alpha) = R$, and so we can write $1 = 2s + (1+\sqrt{-5})t$ for some $s, t \in \zz[\sqrt{-5}]$. Moreover, $(1+\sqrt{-5}) = 2s(1+ \sqrt{-5}) + 6t = 2(s+s(1+\sqrt{-5}) + 3t)$, and so the LHS and RHS don't align as the RHS has coefficent divisible by $2$, but the LHS does not. Thus we cannot have $N(\alpha) = 1$. If $N(\alpha) = 2$, then $a^2 + 5 b^2 = 2$, which clearly has no integral solutions. Thus we cannot have $N(\alpha) = 2$, either. So then we have that $(\alpha) \neq I_2$, and so $I_2$ cannot be principal. 
+		We will only show one of the ideals is not principal for (a), as the rest follow pretty easily using the same structure as proving for it one of the ideals: Suppose that $I_2$ is a principal ideal, that is, let $I_2 = (2, 1+ \sqrt{-5})= (\alpha) $. Then we have that $2 = \alpha x$ and $1+ \sqrt{-5} = \alpha y$ for some $x, y \in \zz[\sqrt{-5}]$. So then $N(2) = 4 = N(\alpha ) N(x)$ and $N(1+\sqrt{-5}) = 1^2 + 5 = 6 =   N(\alpha) N(y) $. Thus we have that $N (\alpha) = 1$ or $2$, as $N(\alpha) \mid 4$ and $N (\alpha) \mid 6$. When $N(\alpha) = 1$, then $\alpha$ is a unit, so $(\alpha) = R$, and so we can write $1 = 2s + (1+\sqrt{-5})t$ for some $s, t \in \zz[\sqrt{-5}]$. Moreover, $(1+\sqrt{-5}) = 2s(1+ \sqrt{-5}) + 6t = 2(s+s(1+\sqrt{-5}) + 3t)$, and so the LHS and RHS don't align as the RHS has coefficent divisible by $2$, but the LHS does not. Thus we cannot have $N(\alpha) = 1$. If $N(\alpha) = 2$, then $a^2 + 5 b^2 = 2$, which clearly has no integral solutions. Thus we cannot have $N(\alpha) = 2$, either. So then we have that $(\alpha) \neq I_2$, and so $I_2$ cannot be principal.
+	\end{proof}
+\end{exercise}
+\subsection{8.3 UFD}
+\begin{exercise}[6.].
+\begin{itemize}
+	\item [(a)] Prove that the quotient ring $\zz[i]/(1+i)$ is a field of order $2$.
+	\item [(b)] Let $q \in \zz$ be a prime with $q\ \equiv 3 \Mod{4}$. Prove that the quotient ring $\zz[i]/(q)$ is a field with $q^2$ elements. 
+\end{itemize}
+	\begin{proof} For (a): We have shown in an above exercise that $\zz[i]/I$ is finite for any nonzero ideal $I$ of $\zz[i]$. We simply need to the determine the possible cosets of $\zz[i]/(1+i)$. Firstly $N(1+i) = 1^2 + (-1)^2 = 2$, and so as this is prime we have that $(1+i)$ is irreducible. Now as it is prime it is also maximal and thus we have a field $\zz[i]/(1+i)$. A element in $x \in \zz[i] /(1+i)$ is of the form $x = a+bi + (1+i)$ for some $a, b \in \zz$.  Since $\zz[i]$ is Euclidean, write $x = (1+i)q + r$ for some $q, r \in \zz[i]$ such that $N(r) < N(1+i) = 2$. The only values that $N(r)$ can be are $0, 1,$ and $i$, and so we have to we have, essentially, three elements of $\zz[i]/(1+i)$: $0 + (i+1) = (i+1)$, $1 + (i+1)$, and $i + (1+i)$. But we should not here that $1-i = -i(1+i) \in (1+i)$ and so we thus have two coset representations. Thus $\zz[i]/(1+i)$ is a field of order $2$
 			
+			For (b): As $q$ is prime and $q \equiv 3 \Mod{4}$, we have that this prime is irreducible and $(q)$ is prime. Thus we once again have that $\zz[i]/(q)$ is a field. Now as $\zz[i]$ is Euclidean, we can write $x = ql + r$ for some $l, r \in \zz[i]$ such that $N(r) < N(q)= q^2$. We claim that all elements $N(r)$ determined by being less than $N(q) = q^2$ give rise to distinct cosets in $\zz[i]/(q)$. Suppose that we have two cosets $a_1 + b_1i + (p) = a_2 + b_2 i + (p)$, then we have $(a_1 -a_2) +(b_1-b_2)i \in (p)$, which implies that $a_1 \equiv a_2$ and $b_1 \equiv b_2$ as $p \mid a_1-a_2$ and $p\mid b_1- b_2 $. Thus we have that the cosets are distinct and so we have a field $\zz[i]/ (q)$ of order $q^2$.  
+		
 	\end{proof}
 \end{exercise}
 \subsection{Polynomial Rings that are UFDS}
@@ -664,7 +677,42 @@ Let $p(x)$ be a monic polynomial in $R[x]$. Moreover, let $p(x) = a(x) b (x)$ wh
 	
 	For (d): Let $p = x^4 + 10x^2 +1$. We're going to take $p  \in \qq[x]$. By the the rational root test and the collorary that follows, if we have a root of $p$, then it must be an integer. But clearly $p$ doesn't have integral solutions. Thus by Proposition 6.9., we don't have a linear factor. Now suppose that $p$ is reducible, that is, $p =x^4+10x^2+1 =  (x^2 + ax+ b)(x^2 + cx + d)$, then expanding this out gives us: $p =x^4+x^3c+x^2d+ax^3+ax^2c+adx+x^2b+bcx+bd = x^4 + (a+c)x^3+(b+d+ac)x^2 + (ad+ bc)x + bd$. This then implies the following list conditions, by matching coefficients: $(a+c) = 0, b+d+ac = 10, ad+bc = 0, bd = 1$. So, in particular, $a= -c$ and $b, d = \pm 1$, which implies that, using $b+d+ac = 10$, we get either $2-a^2 = 10$ or $-2 -a^2 = 10$, so then $a^2 = -8$ or $a^2= -12$, and in either case this doesn't work as $a \in \zz$. Thus $p$ is irreducible. 
 	\end{proof}
+\begin{exercise}[2.] Prove that the following polynomials are irreducible in $\zz[x]$.
+\begin{itemize}
+	\item[(a)] $x^4 - 4x^3 + 6$
+	\item[(b)] $x^6 + 30x^5 -15x^3 + 6x -120$
+	\item[(c)] $x^4 + 4x^3 + 6x^2 + 2x+ 1$ [Subsitute $x-1$ for $x$.]
+	\item[(d)] $\frac{(x+2)^p -2^p}{x}$, where $p$ is an odd prime. 
+\end{itemize}
+	\begin{proof}
+		For (a): We see that all coefficients besides the leading term have $2$ as a factor and so applying Eisenstein, and seeing that $6 \notin (4)$, we have that this polynomial is irreducible.
+		
+		
+		For (b): Similarily, we have that the coefficients all have a factor of three but $120 \notin (9)$, and by Eisenstein this polynomial is irreducible. 
+		
+		For (c): Let $f(x) = x^4 + 4x^3 + 6x^2 +2x +1$, and so $G(x) = f(x-1) = (x-1)^4 + 4(x-1)^3 + 6(x-1)^2 +2(x-1) + 1 = x^4-2x+2$ (did this with a calculator), and so we can apply Eisenstein again with the prime ideal $(2)$ and see that this polynomial is irreducible.
+		
+		For (d): If we let $\ell (x) = \frac{(x+2)^p-2^p}{x}$, then working in $\zz/2\zz [x]$ gives us that $(x+2)^p \equiv x^p + 2^p \Mod{2}$, and so we get that $\ell (x) = x^{p-1}$. As $p$ is odd then we have $p-1 = 2n$ for some $n \in \zz$, but then $2n \equiv 0 \Mod{2}$, so then we have $\ell (x) = x^0 = 1$ which is irreducible in $\zz/ \zz [x]$. Thus $\ell(x)$ is irreducible in $\zz[x]$ as well. 
+		
+		\end{proof}
+\end{exercise}
 
+\begin{exercise}[7] Prove that $ \rr [x] / (x^2+1) \simeq \cc$.
+\end{exercise}
+\begin{proof}
+	Define $\varphi \colon \rr[x] \to \cc$ by the evalulation map $\varphi (i = \sqrt{-1})$. Then let $f, g \in \rr[x]$ where $f = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0$ and $g = b_mx^m + b_{m-1} x^{m-1} + \cdots + b_1 x+ b_0$. Then $\varphi (f) + \varphi (g) = f (i) + g(i) = \sum_k a_k y^k + \sum_k b_k i^k = \sum_k (a_k + b_k) i^k = (f+g)(i) = \varphi (f+g)$ and $\varphi (f) \varphi (g) = f(i) g(i) = \sum_k (\sum_{u+v= k} (a_u i^u) (b_v i^v)) = \sum_k (\sum_{u+v = k} a_v b_v) i^k = (fg)(i) = \varphi (fg)$. So then $\varphi$ is a homomorphism.  Now $\varphi (x^2 + 1) = 0 \in \ker \varphi = \{ f \in \rr[x] \colon \varphi (f) = 0 \}$. Now by Proposition 6.10, we have the polynomial is irreducible as it has no roots in $\rr[x]$. As $x^2+1$ is irreducible, we have that $(x^2+1)$ is prime and $\rr[x]$ is a PID so $(x^2+1)$ is maximal. Thus we have a field $\rr[x] /(x^2+1)$ is a field, and additionally, we have that, as $(x^2+1) \subseteq \ker \varphi$ and $(x^2+1)$ is maximal, then $(x^2+1) = \ker \varphi$ as we cannot have $\ker \varphi = \rr[x]$ as then this would imply $\varphi (1) = 0$ which is false. Thus as $\ker \varphi = (x^2+1)$, $\varphi $ is a homomorphism, and $\rr[x]/(x^2+1)$, we have a isomorphism of rings  $\rr[x] /(x^2+1) \simeq \cc$. 
+\end{proof}
+\begin{exercise}[11] Prove that $x^2 + y^2 -1$ is irreducible in $\qq[x, y]$.
+\end{exercise}
+\begin{proof}
+	Consider the ring $(\qq[x])[y]$ where we're taking coefficients in $\qq[x]$. Then $y^2 + (x^2-1)$ implies that we can apply Eisenstein where we pick our prime ideal to be $(x+1)$. Now, clearly $x^2-1 = (x+1)(x-1)$ is divisible by $x+1$, however, $x^2-1$ is not divisble by $(x+1)^2$. Thus this polynomial is irreducible. 
+\end{proof}
+\begin{exercise}[18] Show that $6x^5 + 14x^3-21x+35$ and $18x^5 -30x^2 +120x+360$ are irreducible in $\qq [x]$.
+\end{exercise}
+
+\begin{exercise}
+	
+\end{exercise}
 \section{First Midterm:}
 \begin{exercise} Let $\varphi \colon G \to G^\pp$ be a group homomorphism, and let $H^\pp \trianglelefteq G^\pp $. Show that $\varphi^{-1} (H^\pp) \trianglelefteq G$. 
 \end{exercise}
